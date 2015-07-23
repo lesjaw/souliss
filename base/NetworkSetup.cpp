@@ -137,17 +137,17 @@ void Souliss_SetIPAddress(U8* ip_address, U8* subnet_mask, U8* ip_gateway)
 	U16 vNet_address = (U16)ip_address[i-1];			// The last byte of the IP address is the vNet one
 	DEFAULT_BASEIPADDRESS[i-1]=0;						// The BASEIPADDRESS has last byte always zero
 
-	#if(MCU_TYPE == 0x02)	// Expressif ESP8266
-	// Setup the SSID and Password
-	WiFi.begin(WiFi_SSID, WiFi_Password);
+//	#if(MCU_TYPE == 0x02)	// Expressif ESP8266
+//	// Setup the SSID and Password
+//	WiFi.begin(WiFi_SSID, WiFi_Password);
 	
 	// Connect
-	while (WiFi.status() != WL_CONNECTED) 	
-		delay(500);
+//	while (WiFi.status() != WL_CONNECTED) 	
+//		delay(500);
 	
 	// Set manually an IP address
-	WiFi.config(ip_address, ip_gateway, subnet_mask);
-	#endif
+//	WiFi.config(ip_address, ip_gateway, subnet_mask);
+//	#endif
 	
 	// Set the address
 	Souliss_SetAddress(vNet_address, DYNAMICADDR_SUBNETMASK, 0);
@@ -171,11 +171,11 @@ void Souliss_GetIPAddress()
 	
 #elif(MCU_TYPE == 0x02)	// Expressif ESP8266
 	// Setup the SSID and Password
-	WiFi.begin(WiFi_SSID, WiFi_Password);
+//	WiFi.begin(WiFi_SSID, WiFi_Password);
 	
 	// Connect
-	while (WiFi.status() != WL_CONNECTED) 	
-		delay(500);
+//	while (WiFi.status() != WL_CONNECTED) 	
+//		delay(500);
 	
 	// Get the IP network parameters
 	IPAddress lIP  = WiFi.localIP();
